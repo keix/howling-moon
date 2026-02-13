@@ -1,8 +1,17 @@
+/*
+ * hm_module.c - nginx Module Definition
+ *
+ * Registers directives and lifecycle hooks.
+ */
+
 #include <ngx_config.h>
 #include <ngx_core.h>
 #include <ngx_http.h>
 
+/* External declarations */
 extern ngx_int_t hm_content_handler(ngx_http_request_t *r);
+extern ngx_int_t hm_init_process(ngx_cycle_t *cycle);
+extern void hm_exit_process(ngx_cycle_t *cycle);
 
 static char *hm(ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
 
@@ -24,10 +33,18 @@ static ngx_http_module_t hm_module_ctx = {
     NULL  /* merge location conf */
 };
 
-ngx_module_t ngx_http_hm_module = {
-    NGX_MODULE_V1, &hm_module_ctx, hm_commands, NGX_HTTP_MODULE,
-    NULL,          NULL,           NULL,        NULL,
-    NULL,          NULL,           NULL,        NGX_MODULE_V1_PADDING};
+ngx_module_t ngx_http_hm_module = {NGX_MODULE_V1,
+                                   &hm_module_ctx,  /* module context */
+                                   hm_commands,     /* module directives */
+                                   NGX_HTTP_MODULE, /* module type */
+                                   NULL,            /* init master */
+                                   NULL,            /* init module */
+                                   hm_init_process, /* init process */
+                                   NULL,            /* init thread */
+                                   NULL,            /* exit thread */
+                                   hm_exit_process, /* exit process */
+                                   NULL,            /* exit master */
+                                   NGX_MODULE_V1_PADDING};
 
 static char *hm(ngx_conf_t *cf, ngx_command_t *cmd, void *conf) {
   ngx_http_core_loc_conf_t *clcf;
