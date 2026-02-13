@@ -5,7 +5,7 @@
  * No external dependencies.
  */
 
-#include "hm_runtime.h"
+#include "hm_runtime_api.h"
 
 static ngx_int_t stub_init(hm_runtime *rt, ngx_log_t *log);
 static void stub_shutdown(hm_runtime *rt);
