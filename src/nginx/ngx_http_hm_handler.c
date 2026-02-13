@@ -1,13 +1,13 @@
 /*
- * hm_handler.c - Content Phase Handler
+ * ngx_http_hm_handler.c - Content Phase Handler
  *
  * Delegates request processing to runtime.
  * Does not know runtime internals.
  */
 
-#include "hm_runtime.h"
+#include "../runtime/hm_runtime_api.h"
 
-ngx_int_t hm_content_handler(ngx_http_request_t *r) {
+ngx_int_t ngx_http_hm_handler(ngx_http_request_t *r) {
   ngx_int_t rc;
   ngx_chain_t *out;
 
