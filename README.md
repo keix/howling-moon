@@ -1,4 +1,4 @@
-# Howling-Moon (draft)
+# Howling-Moon
 
 An embeddable Nginx module for Moonquakes.
 
@@ -6,7 +6,7 @@ An embeddable Nginx module for Moonquakes.
 
 Howling-Moon is a minimal Nginx module that embeds the Moonquakes Lua 5.4 compatible runtime.
 
-Its purpose is simple:
+Its purpose is simple:  
 If it cannot be embedded, it is not Lua.
 
 This project exists to prove that Moonquakes is truly an embeddable runtime.
@@ -43,3 +43,7 @@ Moonquakes
 ## Status
 
 Draft design phase.
+
+## License
+
+Copyright (c) 2026 Kei Sawamura, Released under the MIT License.
