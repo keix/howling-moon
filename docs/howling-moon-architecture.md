@@ -14,13 +14,10 @@ howling-moon is a bridge, nothing more.
 ```
 ┌─────────────────────────────────────────┐
 │              nginx layer                │
-│  ngx_http_hm_* (module, handler, lifecycle)
 ├─────────────────────────────────────────┤
 │           runtime abstraction           │
-│         hm_runtime_api (vtable)         │
 ├─────────────────────────────────────────┤
-│           runtime backend               │
-│    hm_runtime_* (stub / mq / lua)       │
+│            runtime backend              │
 └─────────────────────────────────────────┘
 ```
 
